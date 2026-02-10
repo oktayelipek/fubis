@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CUBE DODGE — 3D Endless Runner</title>
+  <meta name="description" content="Dodge incoming cubes in this 3D endless runner. Use WASD/Arrow keys to move and Space to jump! Collect power-ups to survive.">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Game Canvas -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span id="score-value" class="hud-value">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">BEST</span>
+        <span id="highscore-value" class="hud-value">0</span>
+      </div>
+    </div>
+    <!-- Power-up Status Indicator -->
+    <div id="powerup-indicator" class="powerup-indicator hidden">
+      <span id="powerup-icon" class="powerup-icon"></span>
+      <span id="powerup-label" class="powerup-label"></span>
+      <div class="powerup-timer-bar">
+        <div id="powerup-timer-fill" class="powerup-timer-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Screen -->
+  <div id="menu-screen" class="overlay">
+    <div class="overlay-content">
+      <h1 class="game-title">
+        <span class="title-cube">▣</span>
+        CUBE DODGE
+      </h1>
+      <p class="subtitle">Dodge the incoming cubes. Collect power-ups. Survive!</p>
+      <div class="controls-info">
+        <div class="control-row">
+          <kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd>
+          <span>Move</span>
+        </div>
+        <div class="control-row">
+          <kbd>Space</kbd>
+          <span>Jump</span>
+        </div>
+      </div>
+      <div class="powerup-legend">
+        <div class="legend-item">
+          <span class="legend-icon" style="color: #00ffff;">◆</span>
+          <span>Shield — Invincibility</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-icon" style="color: #ffcc00;">◆</span>
+          <span>2X Score — Double Points</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-icon" style="color: #ff3300;">◆</span>
+          <span>Shatter — Destroy Cubes</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-icon explosive-icon">⬟</span>
+          <span>Explosive — Avoid!</span>
+        </div>
+      </div>
+      <div class="start-prompt pulse">Press SPACE to start</div>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameover-screen" class="overlay hidden">
+    <div class="overlay-content">
+      <h2 class="gameover-title">GAME OVER</h2>
+      <div class="final-score-display">
+        <span class="final-label">SCORE</span>
+        <span id="final-score" class="final-value">0</span>
+      </div>
+      <div id="new-high" class="new-high hidden">★ NEW HIGH SCORE ★</div>
+      <div class="start-prompt pulse">Press SPACE to retry</div>
+    </div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
